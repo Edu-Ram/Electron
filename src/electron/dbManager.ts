@@ -2,9 +2,13 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
 import { app } from 'electron';
+import { isDev } from './util.js';
 
 export function getDbPath(): string {
-  return path.join(app.getPath('userData'), 'data.sqlite');
+  const base = isDev()
+    ? app.getAppPath()
+    : path.dirname(app.getPath('exe'));
+  return path.join(base, 'data.sqlite');
 }
 
 // ─── Import / Export ────────────────────────────────────────────────
