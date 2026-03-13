@@ -1,4 +1,4 @@
-# Electron SQLite CRUD
+# Gestión de clientes y equipos
 
 ## Instalación
 
